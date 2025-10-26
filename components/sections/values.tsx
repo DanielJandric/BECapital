@@ -1,4 +1,4 @@
-import { Section } from "@/components/layout/section";
+﻿import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -30,11 +30,11 @@ export function ValuesSection() {
   return (
     <Section id="values">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="space-y-[var(--space-sm)]">
+        <FadeIn className="space-y-[var(--space-sm)] text-center md:text-left">
           <Typography variant="label" className="text-accent/70">
             Values
           </Typography>
-          <Typography variant="headline" className="max-w-[64ch]">
+          <Typography variant="headline" className="mx-auto max-w-[60ch] md:mx-0">
             Principles that guide how we partner, operate, and grow enduring platforms.
           </Typography>
         </FadeIn>
@@ -43,7 +43,7 @@ export function ValuesSection() {
             <li key={value.name} className="list-none">
               <FadeIn
                 delay={index * 0.05}
-                className="border-border/70 space-y-3 border-t pt-[var(--space-md)] first:border-t-0 first:pt-0"
+                className="border-border/60 space-y-3 border-t pt-[var(--space-md)] text-center first:border-t-0 first:pt-0 md:text-left"
               >
                 <Typography variant="subheading" className="text-foreground">
                   {value.name}

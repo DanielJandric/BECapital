@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { fadeIn, staggerChildren } from "@/lib/animations/variants";
 
@@ -22,17 +21,17 @@ export function NavigationBar() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="border-border/60 sticky top-0 z-40 border-b bg-white/75 backdrop-blur-md">
-      <Container className="flex items-center justify-between py-[clamp(1.1rem,3vw,1.6rem)]">
+    <header className="border-border/70 sticky top-0 z-40 border-b bg-white/80 backdrop-blur-xl">
+      <Container className="flex items-center justify-between py-[clamp(1rem,2.6vw,1.4rem)]">
         <Link
           href="#top"
           onClick={closeMenu}
-          className="text-foreground/80 hover:text-foreground flex items-center gap-3 text-sm font-semibold tracking-[0.32em] uppercase transition-colors"
+          className="text-foreground/70 hover:text-foreground flex items-center gap-3 text-sm font-semibold tracking-[0.32em] uppercase transition-colors"
         >
-          <span className="border-border/80 h-9 w-9 rounded-full border bg-white shadow-[0_6px_20px_rgba(17,17,17,0.06)]" />
+          <span className="border-border/70 h-8 w-8 rounded-full border bg-white shadow-[0_6px_18px_rgba(17,17,17,0.05)]" />
           BE Capital SA
         </Link>
-        <nav className="text-muted hidden items-center gap-9 text-sm font-medium md:flex">
+        <nav className="text-muted hidden items-center gap-8 text-[0.82rem] font-medium md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -40,24 +39,21 @@ export function NavigationBar() {
               className="group hover:text-foreground relative transition-colors"
             >
               {item.label}
-              <span className="bg-accent absolute inset-x-0 -bottom-2 h-[1px] scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              <span className="bg-foreground/70 absolute inset-x-0 -bottom-2 h-[1px] scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>
-        <div className="hidden md:block">
-          <Button
-            asChild
-            variant="secondary"
-            className="px-6 py-2 text-xs tracking-[0.22em]"
-          >
-            <Link href="#contact">Book A Call</Link>
-          </Button>
-        </div>
+        <Link
+          href="#contact"
+          className="text-foreground/70 hover:text-foreground hidden items-center gap-2 text-[0.72rem] font-semibold tracking-[0.28em] uppercase transition-colors md:inline-flex"
+        >
+          Book a call <span aria-hidden>→</span>
+        </Link>
         <button
           type="button"
           aria-label="Toggle navigation menu"
           onClick={toggleMenu}
-          className="border-border/80 text-foreground hover:border-foreground/50 relative flex h-11 w-11 items-center justify-center rounded-full border bg-white/80 transition-all hover:shadow-[0_6px_18px_rgba(17,17,17,0.08)] md:hidden"
+          className="border-border/70 text-foreground hover:border-foreground/40 relative flex h-10 w-10 items-center justify-center rounded-full border bg-white/85 transition-all hover:shadow-[0_6px_18px_rgba(17,17,17,0.08)] md:hidden"
         >
           <span
             className={cn(
@@ -90,7 +86,7 @@ export function NavigationBar() {
           >
             <motion.nav
               variants={staggerChildren()}
-              className="border-border/60 border-t bg-white px-[clamp(1.5rem,6vw,3rem)] pt-6 pb-8 text-lg shadow-[0_20px_45px_rgba(17,17,17,0.08)]"
+              className="border-border/60 border-t bg-white px-[clamp(1.5rem,6vw,3rem)] pt-6 pb-8 text-base shadow-[0_18px_38px_rgba(17,17,17,0.08)]"
             >
               {navItems.map((item) => (
                 <motion.div key={item.href} variants={fadeIn()}>
@@ -103,9 +99,13 @@ export function NavigationBar() {
                   </Link>
                 </motion.div>
               ))}
-              <Button className="mt-6 w-full" onClick={closeMenu} asChild>
-                <Link href="#contact">Book A Call</Link>
-              </Button>
+              <Link
+                href="#contact"
+                onClick={closeMenu}
+                className="text-foreground/80 hover:text-foreground mt-6 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.28em] uppercase transition-colors"
+              >
+                Book a call <span aria-hidden>→</span>
+              </Link>
             </motion.nav>
           </motion.div>
         ) : null}

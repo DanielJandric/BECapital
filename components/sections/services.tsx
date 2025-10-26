@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { FadeIn } from "@/components/ui/fade-in";
+import { cn } from "@/lib/utils/cn";
 
 const blurDataUrl =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8/5+hHgAGgwJIqZPknwAAAABJRU5ErkJggg==";
@@ -49,7 +50,7 @@ const services = [
 export function ServicesSection() {
   return (
     <Section id="services">
-      <Container className="space-y-[var(--space-lg)]">
+      <Container className="space-y-[var(--space-xl)]">
         <FadeIn className="space-y-[var(--space-sm)]">
           <Typography variant="label" className="text-accent/70">
             Investment Themes
@@ -64,14 +65,18 @@ export function ServicesSection() {
             capital programs.
           </Typography>
         </FadeIn>
-        <div className="divide-border border-border/70 divide-y overflow-hidden rounded-[28px] border bg-white/70 shadow-[0_12px_36px_rgba(17,17,17,0.05)] backdrop-blur-sm">
+        <div className="space-y-[var(--space-xl)]">
           {services.map((service, index) => (
             <FadeIn
               key={service.title}
               delay={index * 0.06}
-              className="grid gap-6 px-[clamp(1.8rem,4vw,2.6rem)] py-[clamp(2rem,4vw,2.8rem)] transition hover:bg-white/90 md:grid-cols-[minmax(0,0.55fr)_minmax(0,0.45fr)] md:items-center"
+              className={cn(
+                "flex flex-col gap-[var(--space-md)] rounded-[32px] bg-white/70 p-[clamp(1.8rem,4vw,2.8rem)] shadow-[0_12px_32px_rgba(17,17,17,0.05)] backdrop-blur",
+                index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row",
+                "md:items-center md:gap-[var(--space-xl)]",
+              )}
             >
-              <div className="space-y-3">
+              <div className="space-y-3 md:w-1/2">
                 <Typography variant="subheading" className="text-foreground">
                   {service.title}
                 </Typography>
@@ -79,12 +84,12 @@ export function ServicesSection() {
                   {service.description}
                 </Typography>
               </div>
-              <div className="border-border/60 relative aspect-[3/2] overflow-hidden rounded-[22px] border bg-white">
+              <div className="border-border/60 relative aspect-[3/2] w-full overflow-hidden rounded-[26px] border bg-white md:w-1/2">
                 <Image
                   src={service.image.src}
                   alt={service.image.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="h-full w-full object-cover"
                   placeholder="blur"
                   blurDataURL={blurDataUrl}

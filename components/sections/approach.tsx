@@ -1,11 +1,11 @@
-import { Section } from "@/components/layout/section";
+﻿import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { FadeIn } from "@/components/ui/fade-in";
 
 const pillars = [
   {
-    title: "Entrepreneur DNA",
+    title: "Entrepreneurial DNA",
     detail:
       "Direct access to founders who have scaled, listed, and exited lifestyle businesses. We operate as partners in the arena, not capital on the sidelines.",
   },
@@ -23,16 +23,16 @@ const pillars = [
 
 export function ApproachSection() {
   return (
-    <Section id="approach" className="rounded-[40px] bg-white/65">
-      <Container className="space-y-[var(--space-xl)] py-[clamp(2.6rem,6vw,4rem)]">
-        <FadeIn className="space-y-[var(--space-sm)]">
+    <Section id="approach" className="rounded-[40px] bg-white/70">
+      <Container className="space-y-[var(--space-xl)] py-[clamp(2.4rem,6vw,4rem)]">
+        <FadeIn className="space-y-[var(--space-sm)] text-center md:text-left">
           <Typography variant="label" className="text-accent/70">
             Approach
           </Typography>
-          <Typography variant="headline" className="max-w-[64ch]">
+          <Typography variant="headline" className="mx-auto max-w-[62ch] md:mx-0">
             Entrepreneurial instinct guided by disciplined, long-term stewardship.
           </Typography>
-          <Typography variant="body" muted className="max-w-[70ch]">
+          <Typography variant="body" muted className="mx-auto max-w-[68ch] md:mx-0">
             We embed capital allocation, governance, and operations within a single
             continuum. Decisions remain swift, data-rich, and anchored in decades of
             founder experience.
@@ -43,12 +43,12 @@ export function ApproachSection() {
             <FadeIn
               key={pillar.title}
               delay={index * 0.06}
-              className="border-border/70 flex flex-col gap-4 border-t pt-[var(--space-lg)] first:border-t-0 first:pt-0 md:flex-row md:gap-[var(--space-md)]"
+              className="border-border/60 flex flex-col gap-4 border-t pt-[var(--space-lg)] text-center first:border-t-0 first:pt-0 md:flex-row md:items-start md:gap-[var(--space-md)] md:text-left"
             >
-              <span className="text-muted text-sm font-semibold tracking-[0.32em] md:w-40">
+              <span className="text-muted text-sm font-semibold tracking-[0.32em] md:w-32">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div className="space-y-3">
+              <div className="mx-auto max-w-[66ch] space-y-3 md:mx-0">
                 <Typography variant="subheading" className="text-foreground">
                   {pillar.title}
                 </Typography>

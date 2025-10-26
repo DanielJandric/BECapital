@@ -1,4 +1,4 @@
-import { Section } from "@/components/layout/section";
+﻿import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { FadeIn } from "@/components/ui/fade-in";
@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
   return (
-    <Section id="contact">
+    <Section id="contact" className="pb-[var(--space-3xl)]">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="max-w-[62ch] space-y-[var(--space-sm)]">
+        <FadeIn className="max-w-[60ch] space-y-[var(--space-sm)] text-center md:text-left">
           <Typography variant="label" className="text-accent/70">
             Contact
           </Typography>
@@ -16,8 +16,8 @@ export function ContactSection() {
             Discuss a transaction, co-investment, or succession opportunity.
           </Typography>
           <Typography variant="body" muted>
-            Share transaction context, timing, and stakeholders. A senior member of our
-            investment committee will respond within one business day.
+            Share the context, timing, and stakeholders. A senior member of our investment
+            committee will respond within one business day.
           </Typography>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -29,8 +29,9 @@ export function ContactSection() {
                 name="name"
                 autoComplete="name"
                 placeholder="Alex Bonvin"
-                className="border-border/70 text-foreground placeholder:text-muted/60 focus:border-accent/50 focus:ring-accent/30 rounded-2xl border bg-white px-5 py-4 text-base focus:ring-2 focus:outline-none"
+                className="border-border/60 text-foreground focus:border-foreground bg-transparent px-0 py-3 text-base transition outline-none focus:ring-0 md:border-b"
               />
+              <span className="bg-border/50 h-px md:hidden" aria-hidden />
             </label>
             <label className="flex flex-col gap-2 md:col-span-1">
               <span className="text-muted font-medium tracking-[0.12em]">Email</span>
@@ -39,8 +40,9 @@ export function ContactSection() {
                 name="email"
                 autoComplete="email"
                 placeholder="you@becapital.swiss"
-                className="border-border/70 text-foreground placeholder:text-muted/60 focus:border-accent/50 focus:ring-accent/30 rounded-2xl border bg-white px-5 py-4 text-base focus:ring-2 focus:outline-none"
+                className="border-border/60 text-foreground focus:border-foreground bg-transparent px-0 py-3 text-base transition outline-none focus:ring-0 md:border-b"
               />
+              <span className="bg-border/50 h-px md:hidden" aria-hidden />
             </label>
             <label className="flex flex-col gap-2 md:col-span-2">
               <span className="text-muted font-medium tracking-[0.12em]">
@@ -50,8 +52,9 @@ export function ContactSection() {
                 name="message"
                 rows={5}
                 placeholder="Outline the opportunity, growth thesis, and parties involved."
-                className="border-border/70 text-foreground placeholder:text-muted/60 focus:border-accent/50 focus:ring-accent/30 resize-none rounded-2xl border bg-white px-5 py-4 text-base focus:ring-2 focus:outline-none"
+                className="border-border/60 text-foreground focus:border-foreground bg-transparent px-0 py-3 text-base transition outline-none focus:ring-0 md:border-b"
               />
+              <span className="bg-border/50 h-px md:hidden" aria-hidden />
             </label>
             <div className="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
               <label className="text-muted flex items-start gap-3 text-xs">
@@ -66,7 +69,8 @@ export function ContactSection() {
               </label>
               <Button
                 type="submit"
-                className="px-6 py-3 text-xs tracking-[0.24em] md:w-auto"
+                variant="secondary"
+                className="self-start px-6 py-3 text-xs tracking-[0.24em] uppercase"
               >
                 Submit Request
               </Button>
