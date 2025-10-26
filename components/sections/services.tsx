@@ -71,12 +71,11 @@ export function ServicesSection() {
               key={service.title}
               delay={index * 0.06}
               className={cn(
-                "flex flex-col gap-[var(--space-md)] rounded-[32px] bg-white/70 p-[clamp(1.8rem,4vw,2.8rem)] shadow-[0_12px_32px_rgba(17,17,17,0.05)] backdrop-blur",
-                index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row",
-                "md:items-center md:gap-[var(--space-xl)]",
+                "flex flex-col gap-[var(--space-lg)] md:flex-row md:items-center",
+                index % 2 === 1 ? "md:flex-row-reverse" : undefined,
               )}
             >
-              <div className="space-y-3 md:w-1/2">
+              <div className="space-y-3 text-center md:w-1/2 md:text-left">
                 <Typography variant="subheading" className="text-foreground">
                   {service.title}
                 </Typography>
@@ -84,7 +83,7 @@ export function ServicesSection() {
                   {service.description}
                 </Typography>
               </div>
-              <div className="border-border/60 relative aspect-[3/2] w-full overflow-hidden rounded-[26px] border bg-white md:w-1/2">
+              <div className="relative aspect-[3/2] w-full md:w-1/2">
                 <Image
                   src={service.image.src}
                   alt={service.image.alt}

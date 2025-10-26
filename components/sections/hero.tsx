@@ -55,7 +55,7 @@ export function HeroSection() {
               className="hover:text-foreground flex items-center gap-1 transition-colors"
             >
               Schedule a briefing
-              <span aria-hidden>→</span>
+              <span aria-hidden>{"\u2192"}</span>
             </a>
             <span aria-hidden className="bg-border/70 hidden h-[1px] w-6 md:inline" />
             <a
@@ -63,7 +63,7 @@ export function HeroSection() {
               className="hover:text-foreground flex items-center gap-1 transition-colors"
             >
               Investment philosophy
-              <span aria-hidden>→</span>
+              <span aria-hidden>{"\u2192"}</span>
             </a>
           </div>
           <div className="text-muted/75 flex flex-col items-center gap-2 text-sm md:flex-row md:flex-wrap md:justify-start md:gap-4 md:text-left">
@@ -79,19 +79,17 @@ export function HeroSection() {
           </div>
         </FadeIn>
         <FadeIn delay={0.12}>
-          <div className="overflow-hidden rounded-[28px] bg-white md:rounded-[36px]">
-            <div className="relative aspect-[7/8] w-full overflow-hidden md:aspect-[5/3]">
-              <Image
-                src="/images/hero-lifestyle.png"
-                alt="Founders discussion in a Swiss alpine setting"
-                fill
-                sizes="(max-width: 768px) 100vw, 80vw"
-                className="h-full w-full object-cover"
-                placeholder="blur"
-                blurDataURL={blurDataUrl}
-                priority
-              />
-            </div>
+          <div className="relative aspect-[7/8] w-full md:aspect-[5/3]">
+            <Image
+              src="/images/hero-lifestyle.png"
+              alt="Founders discussion in a Swiss alpine setting"
+              fill
+              sizes="(max-width: 768px) 100vw, 80vw"
+              className="h-full w-full object-cover"
+              placeholder="blur"
+              blurDataURL={blurDataUrl}
+              priority
+            />
           </div>
         </FadeIn>
       </Container>
