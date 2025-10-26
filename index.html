@@ -81,10 +81,26 @@
         font-weight: 600;
         letter-spacing: 0.18em;
         text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
       }
 
       .logo span {
         color: var(--accent);
+      }
+
+      .logo-mark {
+        width: clamp(32px, 2.6vw, 44px);
+        height: clamp(32px, 2.6vw, 44px);
+        object-fit: contain;
+        filter: brightness(1.05) contrast(1.05);
+        opacity: 0.75;
+        transition: opacity 220ms ease;
+      }
+
+      .logo:hover .logo-mark {
+        opacity: 1;
       }
 
       main {
@@ -252,7 +268,15 @@
   <body>
     <header>
       <nav>
-        <div class="logo"><span>BE</span> Capital SA</div>
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="BE Capital logo"
+            class="logo-mark"
+            loading="lazy"
+          />
+          <span>BE</span> Capital SA
+        </div>
       </nav>
     </header>
     <main>
