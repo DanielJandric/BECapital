@@ -5,24 +5,24 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 const values = [
   {
-    name: "Discretion",
+    name: "Entrepreneurial Grit",
     description:
-      "We operate with understated confidence, prioritising confidentiality at every touchpoint.",
+      "We are builders at heart, comfortable navigating ambiguity and unlocking opportunity alongside founders and management teams.",
   },
   {
-    name: "Excellence",
+    name: "Disciplined Patience",
     description:
-      "Meticulous execution, relentless refinement, and teams composed of proven specialists.",
+      "Our buy-and-hold mentality favours durable advantage over short-term optics. We compound value thoughtfully and release only when the thesis is complete.",
   },
   {
-    name: "Continuity",
+    name: "Aligned Ownership",
     description:
-      "Stewardship that looks beyond decades, ensuring smooth succession and enduring governance.",
+      "We co-invest materially, seat aligned governance, and ensure leadership incentives remain tied to the strategic arc.",
   },
   {
-    name: "Trust",
+    name: "Experiential Insight",
     description:
-      "Transparent alignment with families and partners, reinforced by co-investment and accountability.",
+      "Deep sector immersion across leisure, living, and digital commerce informs every decision, from concept curation to international rollout.",
   },
 ] as const;
 
@@ -35,7 +35,7 @@ export function ValuesSection() {
             Values
           </Typography>
           <Typography variant="headline" className="max-w-[68ch]">
-            Principles that define every mandate we undertake.
+            Principles that guide how we partner, operate, and grow enduring platforms.
           </Typography>
           <Typography variant="body" muted className="max-w-[70ch]">
             Our culture is built on Swiss excellence - precise, composed, and grounded in

@@ -5,24 +5,24 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 const services = [
   {
-    title: "Wealth Management",
+    title: "Leisure & Hospitality Platforms",
     description:
-      "Bespoke portfolio construction aligned to long-term objectives, balancing preservation with calibrated growth.",
+      "We acquire and scale destination concepts that blend hospitality, wellness, and curated experiences, elevating them into defensible lifestyle ecosystems.",
   },
   {
-    title: "Estate Planning",
+    title: "Living & Real Assets",
     description:
-      "Multi-jurisdictional structuring that safeguards legacy and ensures seamless intergenerational transitions.",
+      "From urban residences to alpine retreats, we reposition real estate with data-informed capital programs that unlock new revenue layers and long-term resilience.",
   },
   {
-    title: "Tax Advisory",
+    title: "Digital Commerce & Experiences",
     description:
-      "Strategic tax intelligence across Swiss and international frameworks to optimize outcomes without compromising compliance.",
+      "We back omnichannel brands and infrastructure that connect physical venues with digital journeys, compounding engagement across markets and modalities.",
   },
   {
-    title: "Philanthropic Planning",
+    title: "Buy & Hold Stewardship",
     description:
-      "Purpose-led giving strategies that reflect family values, leveraging governance frameworks and measurable impact.",
+      "Our evergreen capital structure supports 12+ year ownership horizons, embedding operational talent, governance, and succession planning to sustain momentum.",
   },
 ] as const;
 
@@ -33,16 +33,18 @@ export function ServicesSection() {
         <FadeIn className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.1fr)] md:items-end md:gap-[var(--space-xl)]">
           <div className="space-y-4 md:space-y-[var(--space-sm)]">
             <Typography variant="label" className="text-accent/80">
-              Capabilities
+              Investment Themes
             </Typography>
             <Typography variant="headline" className="max-w-[68ch]">
-              Holistic stewardship anchored in discretion and disciplined risk management.
+              A focused mandate where experiential living, property, and digital commerce
+              intersect.
             </Typography>
           </div>
           <Typography variant="body" muted className="max-w-[70ch]">
-            Each mandate is tailored to family dynamics, governance, and desired impact.
-            Our team orchestrates specialists while remaining your single point of
-            accountability.
+            We pursue control positions and significant minorities in platforms ready to
+            scale across Europe. Our team orchestrates acquisition roll-ups, organic
+            growth, and capital programs while remaining the single point of
+            accountability alongside founders and leadership teams.
           </Typography>
         </FadeIn>
         <div className="grid gap-[var(--space-md)] md:grid-cols-2">

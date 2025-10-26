@@ -5,19 +5,19 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 const pillars = [
   {
-    title: "Curated Opportunity Flow",
+    title: "Entrepreneur DNA",
     detail:
-      "We originate and evaluate private market opportunities through a proprietary network, declining far more than we pursue to maintain selectivity.",
+      "We approach every mandate as builders. Our partners gain direct access to founders who have scaled, listed, and exited businesses across lifestyle sectors.",
   },
   {
-    title: "Integrated Risk Governance",
+    title: "Operational Depth",
     detail:
-      "Cross-disciplinary committees oversee liquidity, jurisdictional, and reputational risk with scenario analysis and stress testing.",
+      "Dedicated operating partners map growth roadmaps, deploy playbooks for guest experience, proptech, and digital marketing, and chair value-creation sprints.",
   },
   {
-    title: "Compounding Through Continuity",
+    title: "Capital with Permanence",
     detail:
-      "Active ownership, board participation, and structured value-creation plans ensure each asset compounds over a generational horizon.",
+      "Our balance sheet structure allows us to buy, hold, and selectively recycle rather than follow fund cycles. We release capital only when strategic arcs mature.",
   },
 ] as const;
 
@@ -30,12 +30,13 @@ export function ApproachSection() {
             Approach
           </Typography>
           <Typography variant="headline" className="max-w-[68ch]">
-            A measured methodology that balances entrepreneurial instinct with
-            institutional rigor.
+            A measured methodology that combines entrepreneurial instinct with disciplined
+            institutional execution.
           </Typography>
           <Typography variant="body" muted className="max-w-[70ch]">
             We embed governance, risk oversight, and capital allocation into a single
-            continuum, ensuring decisions are swift yet safeguarded.
+            continuum. Decisions remain swift, data-rich, and protected by experienced
+            stewardship.
           </Typography>
         </FadeIn>
         <div className="grid gap-[var(--space-lg)] md:grid-cols-3">

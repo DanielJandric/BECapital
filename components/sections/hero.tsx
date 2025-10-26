@@ -11,32 +11,56 @@ const blurDataUrl =
 export function HeroSection() {
   return (
     <Section id="hero" className="pt-[var(--space-3xl)]">
-      <Container className="grid gap-[var(--space-xl)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-end">
+      <Container className="relative grid gap-[var(--space-xl)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-end">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-[clamp(6rem,18vw,12rem)] left-[clamp(-2rem,-6vw,-4rem)] aspect-square w-[clamp(240px,40vw,420px)] opacity-15"
+        >
+          <Image
+            src="/images/logo.png"
+            alt=""
+            fill
+            sizes="(max-width: 768px) 60vw, 420px"
+            className="object-contain"
+            priority
+          />
+        </div>
         <FadeIn className="space-y-[var(--space-md)]">
           <Typography variant="label" className="text-accent/80">
-            Swiss Family Office \u00B7 Est. 2015
+            Swiss Private Equity Firm {"\u00B7"} Est. 2015
           </Typography>
-          <Typography variant="display" style={{ textWrap: "balance" }}>
-            Preserving and growing generational wealth with quiet conviction.
+          <Typography
+            variant="display"
+            className="text-foreground"
+            style={{ textWrap: "balance" }}
+          >
+            Scaling enduring platforms in leisure, real estate, and e-commerce.
           </Typography>
-          <Typography variant="subheading" muted style={{ textWrap: "balance" }}>
-            BE Capital SA partners with families and founders to steward capital over
-            generations, blending disciplined allocation with Swiss precision and
-            discretion.
+          <Typography
+            variant="subheading"
+            muted
+            className="max-w-[82ch]"
+            style={{ textWrap: "balance" }}
+          >
+            Founded in 2015, BE Capital SA extends the legacy of its founder&apos;s
+            three-decade entrepreneurial track record, creating more than CHF
+            2&nbsp;billion in net value. We back category-shaping operators where
+            lifestyle and living converge, pairing capital with governance and operational
+            empathy to build resilient, globally minded businesses.
           </Typography>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <Button asChild>
-              <a href="#contact">Engage our advisors</a>
+              <a href="#contact">Engage our deal team</a>
             </Button>
             <Button asChild variant="ghost">
-              <a href="#approach">Discover our approach</a>
+              <a href="#approach">Discover our philosophy</a>
             </Button>
           </div>
         </FadeIn>
         <FadeIn delay={0.1} className="relative flex flex-col gap-[var(--space-md)]">
           <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-white/8 via-white/4 to-transparent p-[var(--space-lg)] shadow-[0_50px_120px_rgba(0,0,0,0.4)]">
             <Typography variant="headline" style={{ textWrap: "balance" }}>
-              A discreet partner for families seeking clarity amid complexity.
+              From founder-led growth to evergreen ownership.
             </Typography>
             <Typography
               variant="body"
@@ -44,22 +68,25 @@ export function HeroSection() {
               className="mt-6"
               style={{ textWrap: "balance" }}
             >
-              Our advisory lens is shaped by decades of ownership, patient capital, and
-              the conviction that measured risk-taking underpins enduring prosperity.
+              Our story began with hospitality concepts, landmark residences, and digital
+              commerce ventures built from the ground up. Today that same team deploys
+              patient capital with a buy-and-hold mindset: we underwrite beyond fund
+              cycles, broaden leadership benches, and compound value through purposeful
+              operational sequencing.
             </Typography>
             <div className="mt-[var(--space-lg)] flex flex-wrap items-center gap-[var(--space-md)]">
               <div>
                 <Typography variant="label" className="text-accent/80">
-                  AuM (CHF)
+                  Value Created
                 </Typography>
-                <Typography variant="headline">2.4 Bn+</Typography>
+                <Typography variant="headline">CHF 2.0 Bn+</Typography>
               </div>
               <div className="h-12 w-px bg-white/10" aria-hidden="true" />
               <div>
                 <Typography variant="label" className="text-accent/80">
-                  Investment Horizon
+                  Ownership Horizon
                 </Typography>
-                <Typography variant="headline">30+ years</Typography>
+                <Typography variant="headline">12+ years</Typography>
               </div>
             </div>
           </div>
@@ -76,11 +103,14 @@ export function HeroSection() {
             />
             <div className="space-y-1">
               <Typography variant="label" className="text-foreground/80">
-                Our Legacy
+                Our Heritage
               </Typography>
-              <Typography variant="body" muted>
-                Born from the Investis heritage, we combine entrepreneurial rigor with
-                institutional discipline.
+              <Typography variant="body" muted style={{ textWrap: "balance" }}>
+                Born from the Investis family office, BE Capital evolved into a private
+                equity firm focused on lifestyle infrastructure. We now steward platforms
+                across resorts, residential communities, and omnichannel commerce,
+                partnering with founders to accelerate growth without sacrificing the DNA
+                that made them exceptional.
               </Typography>
             </div>
           </div>

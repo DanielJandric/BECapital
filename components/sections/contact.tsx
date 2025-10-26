@@ -13,11 +13,12 @@ export function ContactSection() {
             Contact
           </Typography>
           <Typography variant="headline">
-            A private conversation to explore alignment.
+            Discuss a transaction, co-investment, or succession opportunity with
+            discretion.
           </Typography>
           <Typography variant="body" muted>
-            Please share a few details about your objectives. Our senior team will respond
-            within one business day to coordinate a discreet discussion.
+            Share transaction context, timing, and stakeholders. A senior member of our
+            investment committee will respond within one business day.
           </Typography>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -47,7 +48,7 @@ export function ContactSection() {
               <textarea
                 name="message"
                 rows={5}
-                placeholder="Describe your investment objectives, time horizon, or areas where counsel is needed."
+                placeholder="Outline the opportunity, growth thesis, and parties involved."
                 className="text-foreground placeholder:text-muted/60 focus:border-accent/60 focus:ring-accent/35 resize-none rounded-[18px] border border-white/12 bg-transparent px-5 py-4 text-base focus:ring-2 focus:outline-none"
               />
             </label>
