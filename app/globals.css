@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --font-sans: var(--font-inter);
+  --color-background: #0a0a0a;
+  --color-surface: #111112;
+  --color-elevated: #141414;
+  --color-foreground: #fafaf9;
+  --color-muted: #9c9c93;
+  --color-accent: #b08d57;
+  --color-accent-soft: #c8ac77;
+  --color-border: rgba(250, 250, 249, 0.08);
+  --color-overlay: rgba(250, 250, 249, 0.06);
+  --shadow-soft: 0px 24px 64px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0px 0px 42px rgba(176, 141, 87, 0.25);
+  --radius-full: 999px;
+  --container-max: min(1120px, 92vw);
+  --space-3xs: 3.82px;
+  --space-2xs: 6.18px;
+  --space-xs: 10px;
+  --space-sm: 16.18px;
+  --space-md: 26.18px;
+  --space-lg: 42.36px;
+  --space-xl: 68.54px;
+  --space-2xl: 110.9px;
+  --space-3xl: 179.44px;
+  --space-section-mobile: clamp(var(--space-md), 8vw, var(--space-lg));
+  --space-section-desktop: clamp(var(--space-lg), 12vw, var(--space-3xl));
+}
+
+@theme inline {
+  --color-base: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-elevated: var(--color-elevated);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-border: var(--color-border);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-glow: var(--shadow-glow);
+  --radius-full: var(--radius-full);
+  --font-sans: var(--font-sans);
+  --spacing-3xs: var(--space-3xs);
+  --spacing-2xs: var(--space-2xs);
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+  --spacing-3xl: var(--space-3xl);
+  --container-max: var(--container-max);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1600px circle at 18% -10%, rgba(176, 141, 87, 0.18), transparent 55%),
+    radial-gradient(1200px circle at 78% 18%, rgba(250, 250, 249, 0.08), transparent 54%),
+    linear-gradient(165deg, #040404 0%, #0e0e0f 48%, #050505 100%);
+  color: var(--color-foreground);
+  font-family:
+    var(--font-sans),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    140deg,
+    rgba(176, 141, 87, 0.12) 0%,
+    rgba(10, 10, 10, 0) 40%,
+    rgba(10, 10, 10, 0.35) 100%
+  );
+  mix-blend-mode: soft-light;
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 1px solid rgba(176, 141, 87, 0.45);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: rgba(176, 141, 87, 0.3);
+  color: var(--color-foreground);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor:
+      url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='5.5' stroke='%23B08D57' stroke-width='1.2'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23FAFAF9' /%3E%3C/svg%3E")
+        12 12,
+      auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(176, 141, 87, 0.6), rgba(176, 141, 87, 0.3));
+  border-radius: 999px;
+  border: 2px solid rgba(10, 10, 10, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(176, 141, 87, 0.75), rgba(176, 141, 87, 0.45));
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 320ms;
+  animation-timing-function: ease-out;
+}
