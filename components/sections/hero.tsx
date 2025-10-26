@@ -11,15 +11,15 @@ const blurDataUrl =
 export function HeroSection() {
   return (
     <Section id="hero" className="pt-[var(--space-3xl)]">
-      <Container className="grid gap-[var(--space-xl)] md:grid-cols-[1.1fr_0.9fr] md:items-end">
+      <Container className="grid gap-[var(--space-xl)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-end">
         <FadeIn className="space-y-[var(--space-md)]">
           <Typography variant="label" className="text-accent/80">
             Swiss Family Office \u00B7 Est. 2015
           </Typography>
-          <Typography variant="display" className="max-w-[74ch]">
+          <Typography variant="display" style={{ textWrap: "balance" }}>
             Preserving and growing generational wealth with quiet conviction.
           </Typography>
-          <Typography variant="subheading" muted className="max-w-[72ch]">
+          <Typography variant="subheading" muted style={{ textWrap: "balance" }}>
             BE Capital SA partners with families and founders to steward capital over
             generations, blending disciplined allocation with Swiss precision and
             discretion.
@@ -35,10 +35,15 @@ export function HeroSection() {
         </FadeIn>
         <FadeIn delay={0.1} className="relative flex flex-col gap-[var(--space-md)]">
           <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-white/8 via-white/4 to-transparent p-[var(--space-lg)] shadow-[0_50px_120px_rgba(0,0,0,0.4)]">
-            <Typography variant="headline" className="max-w-sm">
+            <Typography variant="headline" style={{ textWrap: "balance" }}>
               A discreet partner for families seeking clarity amid complexity.
             </Typography>
-            <Typography variant="body" muted className="mt-6 max-w-lg">
+            <Typography
+              variant="body"
+              muted
+              className="mt-6"
+              style={{ textWrap: "balance" }}
+            >
               Our advisory lens is shaped by decades of ownership, patient capital, and
               the conviction that measured risk-taking underpins enduring prosperity.
             </Typography>
