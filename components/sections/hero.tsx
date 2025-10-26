@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
@@ -52,8 +52,8 @@ export function HeroSection() {
             style={{ textWrap: "balance" }}
           >
             BE Capital SA partners with visionary founders redefining leisure, real
-            estate, and digital commerce. Our founder-led heritage—responsible for more
-            than CHF 2&nbsp;billion in value creation—lets us invest decisively, support
+            estate, and digital commerce. Our founder-led heritage, responsible for more
+            than CHF 2 billion in value creation, lets us invest decisively, support
             operational excellence, and compound outcomes over decades.
           </Typography>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -85,6 +85,21 @@ export function HeroSection() {
               </div>
             ))}
           </div>
+        </FadeIn>
+        <FadeIn
+          delay={0.12}
+          className="border-border/60 overflow-hidden rounded-[32px] border shadow-[0_25px_60px_rgba(17,17,17,0.08)]"
+        >
+          <Image
+            src="/images/hero-lifestyle.png"
+            alt="Founders discussion in a Swiss alpine setting"
+            width={1600}
+            height={960}
+            className="h-full w-full object-cover"
+            placeholder="blur"
+            blurDataURL={blurDataUrl}
+            priority
+          />
         </FadeIn>
       </Container>
     </Section>
