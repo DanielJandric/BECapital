@@ -43,23 +43,6 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Subtle Swiss cross homage, keeps the composition minimal */
-      body::after {
-        content: '';
-        position: fixed;
-        top: clamp(48px, 9vw, 160px);
-        right: clamp(32px, 12vw, 200px);
-        width: clamp(90px, 12vw, 150px);
-        height: clamp(90px, 12vw, 150px);
-        background:
-          linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.12) 46%, rgba(255, 255, 255, 0.12) 54%, transparent 54%),
-          linear-gradient(0deg, transparent 46%, rgba(255, 255, 255, 0.12) 46%, rgba(255, 255, 255, 0.12) 54%, transparent 54%);
-        opacity: 0.4;
-        mix-blend-mode: screen;
-        pointer-events: none;
-        filter: drop-shadow(0 0 18px rgba(206, 31, 52, 0.35));
-      }
-
       .highlight {
         color: var(--accent);
         font-weight: 600;
