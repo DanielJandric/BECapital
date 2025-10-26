@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
   return (
-    <Section id="contact" tone="elevated" className="mx-[clamp(0rem,4vw,3rem)]">
+    <Section id="contact" tone="elevated">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="max-w-2xl space-y-4">
+        <FadeIn className="max-w-[68ch] space-y-4">
           <Typography variant="label" className="text-accent/80">
             Contact
           </Typography>

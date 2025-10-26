@@ -34,10 +34,10 @@ export function ValuesSection() {
           <Typography variant="label" className="text-accent/80">
             Values
           </Typography>
-          <Typography variant="headline" className="max-w-2xl">
+          <Typography variant="headline" className="max-w-[68ch]">
             Principles that define every mandate we undertake.
           </Typography>
-          <Typography variant="body" muted className="max-w-2xl">
+          <Typography variant="body" muted className="max-w-[70ch]">
             Our culture is built on Swiss excellence - precise, composed, and grounded in
             genuine partnership.
           </Typography>

@@ -15,7 +15,7 @@
   --shadow-soft: 0px 24px 64px rgba(0, 0, 0, 0.35);
   --shadow-glow: 0px 0px 42px rgba(176, 141, 87, 0.25);
   --radius-full: 999px;
-  --container-max: min(1120px, 92vw);
+  --container-max: min(1320px, 92vw);
   --space-3xs: 3.82px;
   --space-2xs: 6.18px;
   --space-xs: 10px;

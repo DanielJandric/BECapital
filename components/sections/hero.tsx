@@ -16,10 +16,10 @@ export function HeroSection() {
           <Typography variant="label" className="text-accent/80">
             Swiss Family Office \u00B7 Est. 2015
           </Typography>
-          <Typography variant="display" className="max-w-3xl">
+          <Typography variant="display" className="max-w-[74ch]">
             Preserving and growing generational wealth with quiet conviction.
           </Typography>
-          <Typography variant="subheading" muted className="max-w-2xl">
+          <Typography variant="subheading" muted className="max-w-[72ch]">
             BE Capital SA partners with families and founders to steward capital over
             generations, blending disciplined allocation with Swiss precision and
             discretion.

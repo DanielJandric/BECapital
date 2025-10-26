@@ -29,11 +29,11 @@ export function ApproachSection() {
           <Typography variant="label" className="text-accent/80">
             Approach
           </Typography>
-          <Typography variant="headline" className="max-w-3xl">
+          <Typography variant="headline" className="max-w-[68ch]">
             A measured methodology that balances entrepreneurial instinct with
             institutional rigor.
           </Typography>
-          <Typography variant="body" muted className="max-w-2xl">
+          <Typography variant="body" muted className="max-w-[70ch]">
             We embed governance, risk oversight, and capital allocation into a single
             continuum, ensuring decisions are swift yet safeguarded.
           </Typography>

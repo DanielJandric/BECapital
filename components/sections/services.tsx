@@ -30,16 +30,16 @@ export function ServicesSection() {
   return (
     <Section id="services">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="space-y-4">
+        <FadeIn className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.1fr)] md:items-end md:gap-[var(--space-xl)]">
+          <div className="space-y-4 md:space-y-[var(--space-sm)]">
             <Typography variant="label" className="text-accent/80">
               Capabilities
             </Typography>
-            <Typography variant="headline" className="max-w-2xl">
+            <Typography variant="headline" className="max-w-[68ch]">
               Holistic stewardship anchored in discretion and disciplined risk management.
             </Typography>
           </div>
-          <Typography variant="body" muted className="max-w-md">
+          <Typography variant="body" muted className="max-w-[70ch]">
             Each mandate is tailored to family dynamics, governance, and desired impact.
             Our team orchestrates specialists while remaining your single point of
             accountability.
