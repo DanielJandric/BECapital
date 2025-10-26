@@ -7,22 +7,22 @@ const values = [
   {
     name: "Entrepreneurial Grit",
     description:
-      "We are builders at heart, comfortable navigating ambiguity and unlocking opportunity alongside founders and management teams.",
+      "Builders first. We immerse ourselves alongside management to navigate ambiguity and unlock the next chapter.",
   },
   {
     name: "Disciplined Patience",
     description:
-      "Our buy-and-hold mentality favours durable advantage over short-term optics. We compound value thoughtfully and release only when the thesis is complete.",
+      "A buy-and-hold mentality that favours durable advantage over short-term optics. We compound thoughtfully.",
   },
   {
     name: "Aligned Ownership",
     description:
-      "We co-invest materially, seat aligned governance, and ensure leadership incentives remain tied to the strategic arc.",
+      "Material co-investment and governance alignment keep incentives tied to the strategic arc.",
   },
   {
     name: "Experiential Insight",
     description:
-      "Deep sector immersion across leisure, living, and digital commerce informs every decision, from concept curation to international rollout.",
+      "Decades inside leisure, living, and commerce inform every decision—from concept design to global rollout.",
   },
 ] as const;
 
@@ -30,29 +30,25 @@ export function ValuesSection() {
   return (
     <Section id="values">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="space-y-4">
-          <Typography variant="label" className="text-accent/80">
+        <FadeIn className="space-y-[var(--space-sm)]">
+          <Typography variant="label" className="text-accent/70">
             Values
           </Typography>
-          <Typography variant="headline" className="max-w-[68ch]">
+          <Typography variant="headline" className="max-w-[64ch]">
             Principles that guide how we partner, operate, and grow enduring platforms.
           </Typography>
-          <Typography variant="body" muted className="max-w-[70ch]">
-            Our culture is built on Swiss excellence - precise, composed, and grounded in
-            genuine partnership.
-          </Typography>
         </FadeIn>
-        <ul className="grid gap-[var(--space-md)] md:grid-cols-2">
+        <ul className="grid gap-[var(--space-lg)] md:grid-cols-2">
           {values.map((value, index) => (
             <li key={value.name} className="list-none">
               <FadeIn
                 delay={index * 0.05}
-                className="rounded-[24px] border border-white/10 bg-black/45 p-[var(--space-md)] backdrop-blur-xl"
+                className="border-border/70 space-y-3 border-t pt-[var(--space-md)] first:border-t-0 first:pt-0"
               >
                 <Typography variant="subheading" className="text-foreground">
                   {value.name}
                 </Typography>
-                <Typography variant="body" muted className="mt-3">
+                <Typography variant="body" muted style={{ textWrap: "balance" }}>
                   {value.description}
                 </Typography>
               </FadeIn>

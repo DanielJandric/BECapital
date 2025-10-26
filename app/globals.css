@@ -3,17 +3,17 @@
 
 :root {
   --font-sans: var(--font-inter);
-  --color-background: #0a0a0a;
-  --color-surface: #111112;
-  --color-elevated: #141414;
-  --color-foreground: #fafaf9;
-  --color-muted: #9c9c93;
+  --color-background: #fafaf9;
+  --color-surface: #ffffff;
+  --color-elevated: #f5f5f3;
+  --color-foreground: #111111;
+  --color-muted: #6c6c6a;
   --color-accent: #b08d57;
-  --color-accent-soft: #c8ac77;
-  --color-border: rgba(250, 250, 249, 0.08);
-  --color-overlay: rgba(250, 250, 249, 0.06);
-  --shadow-soft: 0px 24px 64px rgba(0, 0, 0, 0.35);
-  --shadow-glow: 0px 0px 42px rgba(176, 141, 87, 0.25);
+  --color-accent-soft: #d3b98a;
+  --color-border: rgba(17, 17, 17, 0.06);
+  --color-overlay: rgba(255, 255, 255, 0.6);
+  --shadow-soft: 0px 24px 70px rgba(17, 17, 17, 0.08);
+  --shadow-glow: 0px 18px 60px rgba(176, 141, 87, 0.18);
   --radius-full: 999px;
   --container-max: min(1320px, 92vw);
   --space-3xs: 3.82px;
@@ -57,15 +57,15 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-background);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   min-height: 100vh;
   background:
-    radial-gradient(1600px circle at 18% -10%, rgba(176, 141, 87, 0.18), transparent 55%),
-    radial-gradient(1200px circle at 78% 18%, rgba(250, 250, 249, 0.08), transparent 54%),
-    linear-gradient(165deg, #040404 0%, #0e0e0f 48%, #050505 100%);
+    radial-gradient(1200px circle at 12% -8%, rgba(176, 141, 87, 0.08), transparent 55%),
+    radial-gradient(1400px circle at 80% -20%, rgba(17, 17, 17, 0.05), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f4f4f2 100%);
   color: var(--color-foreground);
   font-family:
     var(--font-sans),
@@ -86,13 +86,13 @@ body::before {
   inset: 0;
   pointer-events: none;
   background: linear-gradient(
-    140deg,
+    135deg,
     rgba(176, 141, 87, 0.12) 0%,
-    rgba(10, 10, 10, 0) 40%,
-    rgba(10, 10, 10, 0.35) 100%
+    rgba(255, 255, 255, 0.3) 38%,
+    rgba(255, 255, 255, 0) 100%
   );
-  mix-blend-mode: soft-light;
-  opacity: 0.65;
+  mix-blend-mode: screen;
+  opacity: 0.45;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -110,37 +110,28 @@ body::before {
 }
 
 :focus-visible {
-  outline: 1px solid rgba(176, 141, 87, 0.45);
+  outline: 1px solid rgba(176, 141, 87, 0.35);
   outline-offset: 4px;
 }
 
 ::selection {
-  background: rgba(176, 141, 87, 0.3);
+  background: rgba(176, 141, 87, 0.18);
   color: var(--color-foreground);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor:
-      url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='5.5' stroke='%23B08D57' stroke-width='1.2'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23FAFAF9' /%3E%3C/svg%3E")
-        12 12,
-      auto;
-  }
 }
 
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(17, 17, 17, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(176, 141, 87, 0.6), rgba(176, 141, 87, 0.3));
+  background: linear-gradient(180deg, rgba(176, 141, 87, 0.55), rgba(176, 141, 87, 0.25));
   border-radius: 999px;
-  border: 2px solid rgba(10, 10, 10, 0.8);
+  border: 2px solid rgba(250, 250, 249, 0.7);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(176, 141, 87, 0.75), rgba(176, 141, 87, 0.45));
+  background: linear-gradient(180deg, rgba(176, 141, 87, 0.75), rgba(176, 141, 87, 0.4));
 }
 
 ::view-transition-old(root),

@@ -30,35 +30,33 @@ export function ServicesSection() {
   return (
     <Section id="services">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="grid gap-6 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.1fr)] md:items-end md:gap-[var(--space-xl)]">
-          <div className="space-y-4 md:space-y-[var(--space-sm)]">
-            <Typography variant="label" className="text-accent/80">
-              Investment Themes
-            </Typography>
-            <Typography variant="headline" className="max-w-[68ch]">
-              A focused mandate where experiential living, property, and digital commerce
-              intersect.
-            </Typography>
-          </div>
+        <FadeIn className="space-y-[var(--space-sm)]">
+          <Typography variant="label" className="text-accent/70">
+            Investment Themes
+          </Typography>
+          <Typography variant="headline" className="max-w-[66ch]">
+            Focused mandates where experiential living, property, and digital commerce
+            intersect.
+          </Typography>
           <Typography variant="body" muted className="max-w-[70ch]">
-            We pursue control positions and significant minorities in platforms ready to
-            scale across Europe. Our team orchestrates acquisition roll-ups, organic
-            growth, and capital programs while remaining the single point of
-            accountability alongside founders and leadership teams.
+            We pursue control and reference minority positions across Europe, scaling
+            platforms through disciplined roll-ups, organic growth engines, and precise
+            capital programs.
           </Typography>
         </FadeIn>
-        <div className="grid gap-[var(--space-md)] md:grid-cols-2">
+        <div className="divide-border border-border/70 divide-y overflow-hidden rounded-[28px] border bg-white/70 shadow-[0_12px_36px_rgba(17,17,17,0.05)] backdrop-blur-sm">
           {services.map((service, index) => (
-            <FadeIn key={service.title} delay={index * 0.05}>
-              <article className="group hover:border-accent/60 relative overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.04] p-[var(--space-lg)] backdrop-blur-xl transition-transform duration-200 ease-out hover:-translate-y-1 hover:bg-white/[0.06]">
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <div className="from-accent/12 absolute inset-0 bg-gradient-to-br via-transparent to-transparent" />
-                </div>
-                <Typography variant="subheading">{service.title}</Typography>
-                <Typography variant="body" muted className="mt-4">
-                  {service.description}
-                </Typography>
-              </article>
+            <FadeIn
+              key={service.title}
+              delay={index * 0.06}
+              className="group grid gap-3 px-[clamp(1.6rem,4vw,2.4rem)] py-[clamp(1.8rem,4vw,2.4rem)] transition hover:bg-white/90 md:grid-cols-[0.42fr_1fr]"
+            >
+              <Typography variant="subheading" className="text-foreground">
+                {service.title}
+              </Typography>
+              <Typography variant="body" muted style={{ textWrap: "balance" }}>
+                {service.description}
+              </Typography>
             </FadeIn>
           ))}
         </div>

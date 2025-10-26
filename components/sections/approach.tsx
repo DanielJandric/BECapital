@@ -7,52 +7,58 @@ const pillars = [
   {
     title: "Entrepreneur DNA",
     detail:
-      "We approach every mandate as builders. Our partners gain direct access to founders who have scaled, listed, and exited businesses across lifestyle sectors.",
+      "Direct access to founders who have scaled, listed, and exited lifestyle businesses. We operate as partners in the arena, not capital on the sidelines.",
   },
   {
     title: "Operational Depth",
     detail:
-      "Dedicated operating partners map growth roadmaps, deploy playbooks for guest experience, proptech, and digital marketing, and chair value-creation sprints.",
+      "Operating partners orchestrate experience design, proptech, and omnichannel growth. Every mandate receives a bespoke value-creation sprint.",
   },
   {
     title: "Capital with Permanence",
     detail:
-      "Our balance sheet structure allows us to buy, hold, and selectively recycle rather than follow fund cycles. We release capital only when strategic arcs mature.",
+      "A balance sheet structure that favours buy-and-hold. We recycle only when strategic arcs mature, protecting long-term compounding.",
   },
 ] as const;
 
 export function ApproachSection() {
   return (
-    <Section id="approach" tone="surface" className="rounded-[40px]">
-      <Container className="space-y-[var(--space-xl)]">
-        <FadeIn className="space-y-4">
-          <Typography variant="label" className="text-accent/80">
+    <Section id="approach" className="rounded-[40px] bg-white/65">
+      <Container className="space-y-[var(--space-xl)] py-[clamp(2.6rem,6vw,4rem)]">
+        <FadeIn className="space-y-[var(--space-sm)]">
+          <Typography variant="label" className="text-accent/70">
             Approach
           </Typography>
-          <Typography variant="headline" className="max-w-[68ch]">
-            A measured methodology that combines entrepreneurial instinct with disciplined
-            institutional execution.
+          <Typography variant="headline" className="max-w-[64ch]">
+            Entrepreneurial instinct guided by disciplined, long-term stewardship.
           </Typography>
           <Typography variant="body" muted className="max-w-[70ch]">
-            We embed governance, risk oversight, and capital allocation into a single
-            continuum. Decisions remain swift, data-rich, and protected by experienced
-            stewardship.
+            We embed capital allocation, governance, and operations within a single
+            continuum. Decisions remain swift, data-rich, and anchored in decades of
+            founder experience.
           </Typography>
         </FadeIn>
-        <div className="grid gap-[var(--space-lg)] md:grid-cols-3">
+        <ol className="space-y-[var(--space-lg)]">
           {pillars.map((pillar, index) => (
-            <FadeIn key={pillar.title} delay={index * 0.05}>
-              <div className="space-y-3 rounded-[24px] border border-white/10 bg-black/40 p-[var(--space-md)] shadow-[0_30px_80px_rgba(0,0,0,0.28)]">
+            <FadeIn
+              key={pillar.title}
+              delay={index * 0.06}
+              className="border-border/70 flex flex-col gap-4 border-t pt-[var(--space-lg)] first:border-t-0 first:pt-0 md:flex-row md:gap-[var(--space-md)]"
+            >
+              <span className="text-muted text-sm font-semibold tracking-[0.32em] md:w-40">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="space-y-3">
                 <Typography variant="subheading" className="text-foreground">
                   {pillar.title}
                 </Typography>
-                <Typography variant="body" muted>
+                <Typography variant="body" muted style={{ textWrap: "balance" }}>
                   {pillar.detail}
                 </Typography>
               </div>
             </FadeIn>
           ))}
-        </div>
+        </ol>
       </Container>
     </Section>
   );

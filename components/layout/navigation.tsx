@@ -22,17 +22,17 @@ export function NavigationBar() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/5 bg-black/35 backdrop-blur-2xl">
-      <Container className="flex items-center justify-between py-[clamp(1.1rem,3vw,1.8rem)]">
+    <header className="border-border/60 sticky top-0 z-40 border-b bg-white/75 backdrop-blur-md">
+      <Container className="flex items-center justify-between py-[clamp(1.1rem,3vw,1.6rem)]">
         <Link
           href="#top"
           onClick={closeMenu}
-          className="text-foreground/90 hover:text-foreground flex items-center gap-3 text-sm font-medium tracking-[0.32em] uppercase transition-colors"
+          className="text-foreground/80 hover:text-foreground flex items-center gap-3 text-sm font-semibold tracking-[0.32em] uppercase transition-colors"
         >
-          <span className="border-accent/35 h-9 w-9 rounded-full border bg-black/40 shadow-[0_0_25px_rgba(176,141,87,0.15)]" />
+          <span className="border-border/80 h-9 w-9 rounded-full border bg-white shadow-[0_6px_20px_rgba(17,17,17,0.06)]" />
           BE Capital SA
         </Link>
-        <nav className="text-muted hidden items-center gap-9 text-sm font-light md:flex">
+        <nav className="text-muted hidden items-center gap-9 text-sm font-medium md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -40,20 +40,24 @@ export function NavigationBar() {
               className="group hover:text-foreground relative transition-colors"
             >
               {item.label}
-              <span className="bg-accent absolute inset-x-0 -bottom-2 h-px scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              <span className="bg-accent absolute inset-x-0 -bottom-2 h-[1px] scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild variant="secondary">
-            <Link href="#contact">Schedule a conversation</Link>
+          <Button
+            asChild
+            variant="secondary"
+            className="px-6 py-2 text-xs tracking-[0.22em]"
+          >
+            <Link href="#contact">Book A Call</Link>
           </Button>
         </div>
         <button
           type="button"
           aria-label="Toggle navigation menu"
           onClick={toggleMenu}
-          className="text-foreground hover:border-accent/60 hover:text-foreground/90 relative flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/40 transition-colors md:hidden"
+          className="border-border/80 text-foreground hover:border-foreground/50 relative flex h-11 w-11 items-center justify-center rounded-full border bg-white/80 transition-all hover:shadow-[0_6px_18px_rgba(17,17,17,0.08)] md:hidden"
         >
           <span
             className={cn(
@@ -86,21 +90,21 @@ export function NavigationBar() {
           >
             <motion.nav
               variants={staggerChildren()}
-              className="border-t border-white/5 bg-black/85 px-[clamp(1.5rem,6vw,3rem)] pt-6 pb-8 text-lg"
+              className="border-border/60 border-t bg-white px-[clamp(1.5rem,6vw,3rem)] pt-6 pb-8 text-lg shadow-[0_20px_45px_rgba(17,17,17,0.08)]"
             >
               {navItems.map((item) => (
                 <motion.div key={item.href} variants={fadeIn()}>
                   <Link
                     href={item.href}
                     onClick={closeMenu}
-                    className="text-foreground/80 hover:text-foreground block py-3 transition-colors"
+                    className="text-foreground/70 hover:text-foreground block py-3 transition-colors"
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
               <Button className="mt-6 w-full" onClick={closeMenu} asChild>
-                <Link href="#contact">Schedule a conversation</Link>
+                <Link href="#contact">Book A Call</Link>
               </Button>
             </motion.nav>
           </motion.div>

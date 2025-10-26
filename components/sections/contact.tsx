@@ -6,15 +6,14 @@ import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
   return (
-    <Section id="contact" tone="elevated">
+    <Section id="contact">
       <Container className="space-y-[var(--space-lg)]">
-        <FadeIn className="max-w-[68ch] space-y-4">
-          <Typography variant="label" className="text-accent/80">
+        <FadeIn className="max-w-[62ch] space-y-[var(--space-sm)]">
+          <Typography variant="label" className="text-accent/70">
             Contact
           </Typography>
           <Typography variant="headline">
-            Discuss a transaction, co-investment, or succession opportunity with
-            discretion.
+            Discuss a transaction, co-investment, or succession opportunity.
           </Typography>
           <Typography variant="body" muted>
             Share transaction context, timing, and stakeholders. A senior member of our
@@ -30,7 +29,7 @@ export function ContactSection() {
                 name="name"
                 autoComplete="name"
                 placeholder="Alex Bonvin"
-                className="text-foreground placeholder:text-muted/60 focus:border-accent/60 focus:ring-accent/35 rounded-[18px] border border-white/12 bg-transparent px-5 py-4 text-base focus:ring-2 focus:outline-none"
+                className="border-border/70 text-foreground placeholder:text-muted/60 focus:border-accent/50 focus:ring-accent/30 rounded-2xl border bg-white px-5 py-4 text-base focus:ring-2 focus:outline-none"
               />
             </label>
             <label className="flex flex-col gap-2 md:col-span-1">
@@ -39,32 +38,37 @@ export function ContactSection() {
                 type="email"
                 name="email"
                 autoComplete="email"
-                placeholder="you@familyoffice.ch"
-                className="text-foreground placeholder:text-muted/60 focus:border-accent/60 focus:ring-accent/35 rounded-[18px] border border-white/12 bg-transparent px-5 py-4 text-base focus:ring-2 focus:outline-none"
+                placeholder="you@becapital.swiss"
+                className="border-border/70 text-foreground placeholder:text-muted/60 focus:border-accent/50 focus:ring-accent/30 rounded-2xl border bg-white px-5 py-4 text-base focus:ring-2 focus:outline-none"
               />
             </label>
             <label className="flex flex-col gap-2 md:col-span-2">
-              <span className="text-muted font-medium tracking-[0.12em]">Objectives</span>
+              <span className="text-muted font-medium tracking-[0.12em]">
+                Opportunity Details
+              </span>
               <textarea
                 name="message"
                 rows={5}
                 placeholder="Outline the opportunity, growth thesis, and parties involved."
-                className="text-foreground placeholder:text-muted/60 focus:border-accent/60 focus:ring-accent/35 resize-none rounded-[18px] border border-white/12 bg-transparent px-5 py-4 text-base focus:ring-2 focus:outline-none"
+                className="border-border/70 text-foreground placeholder:text-muted/60 focus:border-accent/50 focus:ring-accent/30 resize-none rounded-2xl border bg-white px-5 py-4 text-base focus:ring-2 focus:outline-none"
               />
             </label>
             <div className="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
               <label className="text-muted flex items-start gap-3 text-xs">
                 <input
                   type="checkbox"
-                  className="mt-1 h-4 w-4 rounded border border-white/20 bg-transparent accent-[#B08D57]"
+                  className="border-border/70 mt-1 h-4 w-4 rounded border accent-[#B08D57]"
                 />
                 <span>
                   I consent to the processing of my data in accordance with the BE Capital
                   SA privacy policy.
                 </span>
               </label>
-              <Button type="submit" className="md:w-auto">
-                Submit request
+              <Button
+                type="submit"
+                className="px-6 py-3 text-xs tracking-[0.24em] md:w-auto"
+              >
+                Submit Request
               </Button>
             </div>
           </form>
