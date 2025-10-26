@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BE Capital SA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --background-light: #f5f5f7;
+        --background-dark: #0d0d0f;
+        --text-primary: #e6e6e8;
+        --text-secondary: #a9a9ad;
+        --accent: #b18d46;
+        --card-bg: rgba(18, 18, 20, 0.75);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --max-width: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: radial-gradient(circle at top right, #1a1a1d, #050506);
+        color: var(--text-primary);
+        min-height: 100vh;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 600;
+        text-shadow: 0 0 22px rgba(177, 141, 70, 0.25);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(48px);
+        transition: opacity 900ms cubic-bezier(0.4, 0, 0.2, 1),
+          transform 900ms cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity, transform;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(20px);
+        background: rgba(5, 5, 6, 0.65);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 24px clamp(20px, 5vw, 40px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .hero {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: clamp(80px, 12vw, 160px) clamp(20px, 5vw, 40px);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 64px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.8rem, 4.8vw, 4.6rem);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+      }
+
+      .hero-copy p {
+        font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+        color: var(--text-secondary);
+        max-width: 540px;
+      }
+
+      .hero-callout {
+        border-radius: 28px;
+        padding: 36px;
+        background: linear-gradient(
+          145deg,
+          rgba(15, 15, 18, 0.85),
+          rgba(30, 30, 35, 0.6)
+        );
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .hero-callout span {
+        font-size: 0.9rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .hero-callout p {
+        font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+        line-height: 1.5;
+      }
+
+      section {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: clamp(60px, 8vw, 120px) clamp(20px, 5vw, 40px);
+      }
+
+      section + section {
+        margin-top: clamp(20px, 6vw, 60px);
+      }
+
+      .section-title {
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+
+      .section-heading {
+        font-size: clamp(2rem, 3.2vw, 3rem);
+        font-weight: 500;
+        margin-bottom: 32px;
+        max-width: 700px;
+      }
+
+      .content-card {
+        border-radius: 26px;
+        padding: clamp(32px, 3vw, 48px);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        display: grid;
+        gap: clamp(18px, 2vw, 24px);
+      }
+
+      .content-card p {
+        color: var(--text-secondary);
+        font-size: clamp(1rem, 1.2vw, 1.1rem);
+      }
+
+      .focus-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: clamp(20px, 2.4vw, 32px);
+      }
+
+      .focus-card {
+        padding: 32px;
+        border-radius: 24px;
+        background: linear-gradient(
+          160deg,
+          rgba(16, 16, 18, 0.85),
+          rgba(35, 35, 38, 0.65)
+        );
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        transition: transform 280ms ease, border-color 280ms ease,
+          opacity 900ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .focus-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(177, 141, 70, 0.35);
+      }
+
+      .focus-card h3 {
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+
+      footer {
+        border-top: 1px solid var(--border-color);
+        padding: 32px clamp(20px, 5vw, 40px);
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        background: rgba(5, 5, 6, 0.8);
+      }
+
+      @media (max-width: 640px) {
+        nav {
+          padding: 20px;
+        }
+
+        .hero-callout {
+          order: -1;
+        }
+
+        section {
+          padding: 48px 20px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo"><span>BE</span> Capital SA</div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy" data-reveal>
+          <h1>
+            <strong class="highlight">BE Capital SA</strong>
+            &mdash; a <span class="highlight">family office</span> built on a
+            legacy of <span class="highlight">entrepreneurial excellence</span>.
+          </h1>
+          <p>
+            We deploy capital with <span class="highlight">precision</span>,
+            <span class="highlight">patience</span>, and the
+            <span class="highlight">founder&rsquo;s perspective</span> that
+            shaped one of Switzerland&rsquo;s leading
+            <span class="highlight">real estate success stories</span>.
+          </p>
+        </div>
+        <div class="hero-callout" data-reveal data-reveal-delay="0.15s">
+          <span>Our Perspective</span>
+          <p>
+            Welcome to <span class="highlight">BE Capital SA</span>, the private
+            family office of the <span class="highlight">Bonvin family</span>.
+            We channel decades of proven value creation into the next generation
+            of <span class="highlight">market-leading enterprises</span>.
+          </p>
+        </div>
+      </section>
+
+      <section data-reveal>
+        <div class="section-title">Our Story</div>
+        <div class="section-heading" data-reveal data-reveal-delay="0.05s">
+          Our entrepreneurial heritage anchors every decision we make.
+        </div>
+        <div class="content-card" data-reveal data-reveal-delay="0.1s">
+          <p>
+            BE Capital is built on the success of our founder,
+            <span class="highlight">St&eacute;phane Bonvin</span>. In 1994 he
+            launched <span class="highlight">Investis Group</span>, spotting a
+            distinctive opportunity in the Swiss real estate market. What began
+            as a disciplined focus on residential properties around the
+            <span class="highlight">Lake Geneva region</span> grew into one of
+            Switzerland&rsquo;s leading listed real estate companies.
+          </p>
+          <p>
+            Over three decades, a clear entrepreneurial spirit, deep market
+            knowledge, and an unwavering buy-and-hold strategy generated
+            <span class="highlight">enduring value</span>. The 2016 listing of
+            Investis on the <span class="highlight">SIX Swiss Exchange</span> is
+            the foundation upon which our family office stands.
+          </p>
+        </div>
+      </section>
+
+      <section data-reveal>
+        <div class="section-title">Our Mission</div>
+        <div class="section-heading" data-reveal data-reveal-delay="0.05s">
+          The next generation of value needs patient, purposeful capital.
+        </div>
+        <div class="content-card" data-reveal data-reveal-delay="0.1s">
+          <p>
+            Created in 2015, <span class="highlight">BE Capital SA</span>
+            manages the Bonvin family&rsquo;s assets and extends our
+            <span class="highlight">entrepreneurial DNA</span> into new arenas.
+            While our roots are firmly grounded in real estate, our mandate
+            reaches further.
+          </p>
+          <p>
+            Today, we are stewards of family wealth with a clear strategic lens
+            on <span class="highlight">private markets</span>. We do not invest
+            passively. We <span class="highlight">partner</span>,
+            <span class="highlight">challenge</span>, and help build
+            <span class="highlight">enduring businesses</span>.
+          </p>
+        </div>
+      </section>
+
+      <section data-reveal>
+        <div class="section-title">Our Focus</div>
+        <div class="section-heading" data-reveal data-reveal-delay="0.05s">
+          Private Equity allocations that mirror our founder&rsquo;s mindset.
+        </div>
+        <div class="focus-grid">
+          <div class="focus-card" data-reveal data-reveal-delay="0.1s">
+            <span>Founder's Perspective</span>
+            <h3><span class="highlight">Partners</span> in building</h3>
+            <p>
+              We understand the journey from idea to industry leader. We look
+              for ambitious entrepreneurs and management teams who value a
+              committed <span class="highlight">ally</span>.
+            </p>
+          </div>
+          <div class="focus-card" data-reveal data-reveal-delay="0.2s">
+            <span>Long-Term Horizon</span>
+            <h3><span class="highlight">Patience</span> as an advantage</h3>
+            <p>
+              Free from the constraints of traditional fund cycles, we deploy
+              patient capital that nurtures sustainable growth over generational
+              timelines.
+            </p>
+          </div>
+          <div class="focus-card" data-reveal data-reveal-delay="0.3s">
+            <span>Disciplined Sourcing</span>
+            <h3><span class="highlight">Selective</span> by design</h3>
+            <p>
+              We seek businesses with resilient fundamentals and clear pathways
+              to value creation, applying the rigorous sourcing principles that
+              built Investis.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      &copy; BE Capital SA. Building the future on an entrepreneurial legacy.
+    </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const revealElements = document.querySelectorAll('[data-reveal]');
+        const prefersReducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        );
+
+        revealElements.forEach(function (el) {
+          el.classList.add('reveal');
+          if (el.dataset.revealDelay) {
+            el.style.transitionDelay = el.dataset.revealDelay;
+          }
+        });
+
+        if (prefersReducedMotion.matches) {
+          revealElements.forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          return;
+        }
+
+        if (!('IntersectionObserver' in window)) {
+          revealElements.forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.2,
+            rootMargin: '0px 0px -10% 0px',
+          }
+        );
+
+        revealElements.forEach(function (el) {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
