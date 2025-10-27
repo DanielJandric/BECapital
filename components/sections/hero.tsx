@@ -10,6 +10,11 @@ import { useLocaleContent } from "@/components/context/locale-context";
 const blurDataUrl =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8/5+hHgAGgwJIqZPknwAAAABJRU5ErkJggg==";
 
+const heroImageDimensions = {
+  width: 1024,
+  height: 1024,
+} as const;
+
 export function HeroSection() {
   const { dictionary } = useLocaleContent();
   const hero = dictionary.hero;
@@ -76,13 +81,14 @@ export function HeroSection() {
           </div>
         </FadeIn>
         <FadeIn delay={0.12}>
-          <div className="relative aspect-[7/8] w-full md:aspect-[5/3]">
+          <div className="w-full overflow-hidden">
             <Image
               src="/images/hero-lifestyle.png"
               alt={hero.imageAlt}
-              fill
+              width={heroImageDimensions.width}
+              height={heroImageDimensions.height}
               sizes="(max-width: 768px) 100vw, 80vw"
-              className="h-full w-full object-cover"
+              className="h-auto w-full object-contain"
               placeholder="blur"
               blurDataURL={blurDataUrl}
               priority

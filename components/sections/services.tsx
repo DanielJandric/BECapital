@@ -11,6 +11,19 @@ import { useLocaleContent } from "@/components/context/locale-context";
 const blurDataUrl =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8/5+hHgAGgwJIqZPknwAAAABJRU5ErkJggg==";
 
+const serviceImageDimensions: Record<
+  string,
+  {
+    width: number;
+    height: number;
+  }
+> = {
+  "/images/services-leisure.png": { width: 1024, height: 1024 },
+  "/images/services-living.png": { width: 1024, height: 1024 },
+  "/images/services-digital.png": { width: 1024, height: 1024 },
+  "/images/hero-lifestyle.png": { width: 1024, height: 1024 },
+};
+
 export function ServicesSection() {
   const { dictionary } = useLocaleContent();
   const services = dictionary.services;
@@ -30,36 +43,45 @@ export function ServicesSection() {
           </Typography>
         </FadeIn>
         <div className="space-y-[var(--space-xl)]">
-          {services.items.map((service, index) => (
-            <FadeIn
-              key={service.title}
-              delay={index * 0.06}
-              className={cn(
-                "flex flex-col gap-[var(--space-lg)] md:flex-row md:items-center",
-                index % 2 === 1 ? "md:flex-row-reverse" : undefined
-              )}
-            >
-              <div className="space-y-3 text-center md:w-1/2 md:text-left">
-                <Typography variant="subheading" className="text-foreground">
-                  {service.title}
-                </Typography>
-                <Typography variant="body" muted style={{ textWrap: "balance" }}>
-                  {service.description}
-                </Typography>
-              </div>
-              <div className="relative aspect-[3/2] w-full md:w-1/2">
-                <Image
-                  src={service.image.src}
-                  alt={service.image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="h-full w-full object-cover"
-                  placeholder="blur"
-                  blurDataURL={blurDataUrl}
-                />
-              </div>
-            </FadeIn>
-          ))}
+          {services.items.map((service, index) => {
+            const dimensions =
+              serviceImageDimensions[service.image.src] ?? {
+                width: 1024,
+                height: 1024,
+              };
+
+            return (
+              <FadeIn
+                key={service.title}
+                delay={index * 0.06}
+                className={cn(
+                  "flex flex-col gap-[var(--space-lg)] md:flex-row md:items-center",
+                  index % 2 === 1 ? "md:flex-row-reverse" : undefined
+                )}
+              >
+                <div className="space-y-3 text-center md:w-1/2 md:text-left">
+                  <Typography variant="subheading" className="text-foreground">
+                    {service.title}
+                  </Typography>
+                  <Typography variant="body" muted style={{ textWrap: "balance" }}>
+                    {service.description}
+                  </Typography>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <Image
+                    src={service.image.src}
+                    alt={service.image.alt}
+                    width={dimensions.width}
+                    height={dimensions.height}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="h-auto w-full object-contain"
+                    placeholder="blur"
+                    blurDataURL={blurDataUrl}
+                  />
+                </div>
+              </FadeIn>
+            );
+          })}
         </div>
       </Container>
     </Section>
