@@ -11,7 +11,6 @@ const navItems = [
   { label: "Services", href: "#services" },
   { label: "Approach", href: "#approach" },
   { label: "Values", href: "#values" },
-  { label: "Contact", href: "#contact" },
 ] as const;
 
 export function NavigationBar() {
@@ -43,12 +42,9 @@ export function NavigationBar() {
             </Link>
           ))}
         </nav>
-        <Link
-          href="#contact"
-          className="text-foreground/70 hover:text-foreground hidden items-center gap-2 text-[0.72rem] font-semibold tracking-[0.28em] uppercase transition-colors md:inline-flex"
-        >
-          Book a call <span aria-hidden>→</span>
-        </Link>
+        <div className="text-foreground/40 hidden text-[0.72rem] font-semibold tracking-[0.28em] uppercase md:inline-flex">
+          Bespoke mandates only
+        </div>
         <button
           type="button"
           aria-label="Toggle navigation menu"
@@ -99,13 +95,9 @@ export function NavigationBar() {
                   </Link>
                 </motion.div>
               ))}
-              <Link
-                href="#contact"
-                onClick={closeMenu}
-                className="text-foreground/80 hover:text-foreground mt-6 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.28em] uppercase transition-colors"
-              >
-                Book a call <span aria-hidden>→</span>
-              </Link>
+              <div className="text-foreground/50 mt-6 text-center text-xs font-semibold tracking-[0.28em] uppercase">
+                Bespoke mandates only
+              </div>
             </motion.nav>
           </motion.div>
         ) : null}
