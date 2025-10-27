@@ -1,32 +1,40 @@
+"use client";
+
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
+import { useLocaleContent } from "@/components/context/locale-context";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { dictionary } = useLocaleContent();
+  const footer = dictionary.footer;
+  const note = footer.note.replace("{year}", String(year));
+
   return (
-    <footer className="border-t border-white/5 bg-black/45 backdrop-blur-xl">
-      <Container className="flex flex-col gap-6 py-[clamp(2rem,6vw,3.5rem)] md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-border/60 bg-white/80">
+      <Container className="flex flex-col gap-6 py-[clamp(1.8rem,5vw,3rem)] text-center md:flex-row md:items-center md:justify-between md:text-left">
         <Typography variant="label" className="text-muted">
-          {"\u00A9 "}
-          {year} BE Capital SA. All rights reserved.
+          {note}
         </Typography>
-        <div className="text-muted flex flex-wrap gap-6 text-xs">
-          <span>Switzerland</span>
-          <span>Regulated Family Office</span>
-          <a
-            href="#"
-            className="hover:text-foreground transition-colors"
-            aria-label="View legal notice"
-          >
-            Legal Notice
-          </a>
-          <a
-            href="#"
-            className="hover:text-foreground transition-colors"
-            aria-label="View privacy policy"
-          >
-            Privacy
-          </a>
+        <div className="flex flex-col gap-4 text-xs text-muted md:flex-row md:items-center md:gap-6">
+          <div className="flex justify-center gap-4 md:justify-start">
+            {footer.attributes.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+          <div className="flex justify-center gap-4 md:justify-start">
+            {footer.links.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="transition-colors hover:text-foreground"
+                aria-label={link.label}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </Container>
     </footer>

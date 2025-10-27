@@ -1,16 +1,6 @@
-import { PageLayout } from "@/components/layout/page-layout";
-import { HeroSection } from "@/components/sections/hero";
-import { ServicesSection } from "@/components/sections/services";
-import { ApproachSection } from "@/components/sections/approach";
-import { ValuesSection } from "@/components/sections/values";
+import { redirect } from "next/navigation";
+import { defaultLocale } from "@/lib/i18n/locales";
 
-export default function Home() {
-  return (
-    <PageLayout>
-      <HeroSection />
-      <ServicesSection />
-      <ApproachSection />
-      <ValuesSection />
-    </PageLayout>
-  );
+export default function RootPage() {
+  redirect(`/${defaultLocale}`);
 }

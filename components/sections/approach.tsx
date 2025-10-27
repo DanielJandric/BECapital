@@ -1,45 +1,31 @@
-﻿import { Section } from "@/components/layout/section";
+"use client";
+
+import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { FadeIn } from "@/components/ui/fade-in";
-
-const pillars = [
-  {
-    title: "Entrepreneurial DNA",
-    detail:
-      "Direct access to founders who have scaled, listed, and exited lifestyle businesses. We operate as partners in the arena, not capital on the sidelines.",
-  },
-  {
-    title: "Operational Depth",
-    detail:
-      "Operating partners orchestrate experience design, proptech, and omnichannel growth. Every mandate receives a bespoke value-creation sprint.",
-  },
-  {
-    title: "Capital with Permanence",
-    detail:
-      "A balance sheet structure that favours buy-and-hold. We recycle only when strategic arcs mature, protecting long-term compounding.",
-  },
-] as const;
+import { useLocaleContent } from "@/components/context/locale-context";
 
 export function ApproachSection() {
+  const { dictionary } = useLocaleContent();
+  const approach = dictionary.approach;
+
   return (
     <Section id="approach" className="rounded-[40px] bg-white/70">
       <Container className="space-y-[var(--space-xl)] py-[clamp(2.4rem,6vw,4rem)]">
         <FadeIn className="space-y-[var(--space-sm)] text-center md:text-left">
           <Typography variant="label" className="text-accent/70">
-            Approach
+            {approach.label}
           </Typography>
           <Typography variant="headline" className="mx-auto max-w-[62ch] md:mx-0">
-            Entrepreneurial instinct guided by disciplined, long-term stewardship.
+            {approach.title}
           </Typography>
           <Typography variant="body" muted className="mx-auto max-w-[68ch] md:mx-0">
-            We embed capital allocation, governance, and operations within a single
-            continuum. Decisions remain swift, data-rich, and anchored in decades of
-            founder experience.
+            {approach.description}
           </Typography>
         </FadeIn>
         <ol className="space-y-[var(--space-lg)]">
-          {pillars.map((pillar, index) => (
+          {approach.pillars.map((pillar, index) => (
             <FadeIn
               key={pillar.title}
               delay={index * 0.06}

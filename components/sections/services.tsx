@@ -1,78 +1,42 @@
-﻿import Image from "next/image";
+"use client";
+
+import Image from "next/image";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { FadeIn } from "@/components/ui/fade-in";
 import { cn } from "@/lib/utils/cn";
+import { useLocaleContent } from "@/components/context/locale-context";
 
 const blurDataUrl =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8/5+hHgAGgwJIqZPknwAAAABJRU5ErkJggg==";
 
-const services = [
-  {
-    title: "Leisure & Hospitality Platforms",
-    description:
-      "We acquire and scale destination concepts that blend hospitality, wellness, and curated experiences, elevating them into defensible lifestyle ecosystems.",
-    image: {
-      src: "/images/services-leisure.png",
-      alt: "Luxury alpine resort terrace at sunset",
-    },
-  },
-  {
-    title: "Living & Real Assets",
-    description:
-      "From urban residences to alpine retreats, we reposition real estate with data-informed capital programs that unlock new revenue layers and long-term resilience.",
-    image: {
-      src: "/images/services-living.png",
-      alt: "Minimalist penthouse living room with Swiss lake view",
-    },
-  },
-  {
-    title: "Digital Commerce & Experiences",
-    description:
-      "We back omnichannel brands and infrastructure that connect physical venues with digital journeys, compounding engagement across markets and modalities.",
-    image: {
-      src: "/images/services-digital.png",
-      alt: "Premium workspace with digital analytics display",
-    },
-  },
-  {
-    title: "Buy & Hold Stewardship",
-    description:
-      "Our evergreen capital structure supports 12+ year ownership horizons, embedding operational talent, governance, and succession planning to sustain momentum.",
-    image: {
-      src: "/images/hero-lifestyle.png",
-      alt: "Executive meeting overlooking Swiss mountains",
-    },
-  },
-] as const;
-
 export function ServicesSection() {
+  const { dictionary } = useLocaleContent();
+  const services = dictionary.services;
+
   return (
     <Section id="services">
       <Container className="space-y-[var(--space-xl)]">
         <FadeIn className="space-y-[var(--space-sm)]">
           <Typography variant="label" className="text-accent/70">
-            Investment Themes
+            {services.label}
           </Typography>
           <Typography variant="headline" className="max-w-[66ch]">
-            Focused mandates where experiential living, property, and digital commerce
-            intersect.
+            {services.title}
           </Typography>
           <Typography variant="body" muted className="max-w-[70ch]">
-            We pursue control and reference minority positions across Europe, scaling
-            platforms through disciplined roll-ups, organic growth engines, and precise
-            capital programs.
+            {services.description}
           </Typography>
         </FadeIn>
         <div className="space-y-[var(--space-xl)]">
-          {services.map((service, index) => (
+          {services.items.map((service, index) => (
             <FadeIn
               key={service.title}
               delay={index * 0.06}
               className={cn(
                 "flex flex-col gap-[var(--space-lg)] md:flex-row md:items-center",
-                index % 2 === 1 ? "md:flex-row-reverse" : undefined,
+                index % 2 === 1 ? "md:flex-row-reverse" : undefined
               )}
             >
               <div className="space-y-3 text-center md:w-1/2 md:text-left">

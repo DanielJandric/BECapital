@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -6,15 +6,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 import { Container } from "@/components/ui/container";
 import { fadeIn, staggerChildren } from "@/lib/animations/variants";
-
-const navItems = [
-  { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
-  { label: "Values", href: "#values" },
-] as const;
+import { useLocaleContent } from "@/components/context/locale-context";
+import { locales, localeLabels, defaultLocale } from "@/lib/i18n/locales";
 
 export function NavigationBar() {
   const [open, setOpen] = useState(false);
+  const { locale, dictionary } = useLocaleContent();
+  const navItems = dictionary.nav.navItems;
 
   const toggleMenu = () => setOpen((prev) => !prev);
   const closeMenu = () => setOpen(false);
@@ -25,48 +23,65 @@ export function NavigationBar() {
         <Link
           href="#top"
           onClick={closeMenu}
-          className="text-foreground/70 hover:text-foreground flex items-center gap-3 text-sm font-semibold tracking-[0.32em] uppercase transition-colors"
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.32em] text-foreground/70 transition-colors hover:text-foreground"
         >
-          <span className="border-border/70 h-8 w-8 rounded-full border bg-white shadow-[0_6px_18px_rgba(17,17,17,0.05)]" />
+          <span className="h-8 w-8 rounded-full border border-border/70 bg-white shadow-[0_6px_18px_rgba(17,17,17,0.05)]" />
           BE Capital SA
         </Link>
-        <nav className="text-muted hidden items-center gap-8 text-[0.82rem] font-medium md:flex">
+        <nav className="hidden items-center gap-8 text-[0.82rem] font-medium text-muted md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group hover:text-foreground relative transition-colors"
+              className="group relative transition-colors hover:text-foreground"
             >
               {item.label}
-              <span className="bg-foreground/70 absolute inset-x-0 -bottom-2 h-[1px] scale-x-0 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              <span className="absolute inset-x-0 -bottom-2 h-[1px] scale-x-0 bg-foreground/70 transition-transform duration-200 ease-out group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>
-        <div className="text-foreground/40 hidden text-[0.72rem] font-semibold tracking-[0.28em] uppercase md:inline-flex">
-          Bespoke mandates only
+        <div className="hidden items-center gap-4 md:flex">
+          <span className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-foreground/40">
+            {dictionary.nav.tagline}
+          </span>
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-foreground/50">
+            {locales.map((code) => (
+              <Link
+                key={code}
+                href={code === defaultLocale ? "/" : `/${code}`}
+                aria-current={code === locale ? "page" : undefined}
+                className={cn(
+                  "transition-colors",
+                  code === locale ? "text-foreground" : "hover:text-foreground"
+                )}
+              >
+                {localeLabels[code]}
+              </Link>
+            ))}
+          </div>
         </div>
         <button
           type="button"
           aria-label="Toggle navigation menu"
           onClick={toggleMenu}
-          className="border-border/70 text-foreground hover:border-foreground/40 relative flex h-10 w-10 items-center justify-center rounded-full border bg-white/85 transition-all hover:shadow-[0_6px_18px_rgba(17,17,17,0.08)] md:hidden"
+          className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-white/85 text-foreground transition-all hover:border-foreground/40 hover:shadow-[0_6px_18px_rgba(17,17,17,0.08)] md:hidden"
         >
           <span
             className={cn(
               "h-0.5 w-5 origin-center transform rounded-full bg-current transition-all duration-200",
-              open ? "translate-y-0 rotate-45" : "-translate-y-1.5",
+              open ? "translate-y-0 rotate-45" : "-translate-y-1.5"
             )}
           />
           <span
             className={cn(
               "absolute h-0.5 w-5 rounded-full bg-current transition-opacity duration-200",
-              open ? "opacity-0" : "opacity-100",
+              open ? "opacity-0" : "opacity-100"
             )}
           />
           <span
             className={cn(
               "h-0.5 w-5 origin-center transform rounded-full bg-current transition-all duration-200",
-              open ? "translate-y-0 -rotate-45" : "translate-y-1.5",
+              open ? "translate-y-0 -rotate-45" : "translate-y-1.5"
             )}
           />
         </button>
@@ -89,14 +104,30 @@ export function NavigationBar() {
                   <Link
                     href={item.href}
                     onClick={closeMenu}
-                    className="text-foreground/70 hover:text-foreground block py-3 transition-colors"
+                    className="block py-3 text-foreground/70 transition-colors hover:text-foreground"
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
-              <div className="text-foreground/50 mt-6 text-center text-xs font-semibold tracking-[0.28em] uppercase">
-                Bespoke mandates only
+              <div className="mt-6 flex flex-col items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-foreground/50">
+                <span>{dictionary.nav.tagline}</span>
+                <div className="flex items-center gap-3">
+                  {locales.map((code) => (
+                    <Link
+                      key={code}
+                      href={code === defaultLocale ? "/" : `/${code}`}
+                      onClick={closeMenu}
+                      aria-current={code === locale ? "page" : undefined}
+                      className={cn(
+                        "transition-colors",
+                        code === locale ? "text-foreground" : "hover:text-foreground"
+                      )}
+                    >
+                      {localeLabels[code]}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </motion.nav>
           </motion.div>
@@ -105,3 +136,4 @@ export function NavigationBar() {
     </header>
   );
 }
+
