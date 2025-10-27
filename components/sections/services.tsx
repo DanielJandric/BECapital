@@ -21,6 +21,7 @@ const serviceImageDimensions: Record<
   "/images/services-leisure.png": { width: 1024, height: 1024 },
   "/images/services-living.png": { width: 1024, height: 1024 },
   "/images/services-digital.png": { width: 1024, height: 1024 },
+  "/images/buyhold.png": { width: 1024, height: 1024 },
   "/images/hero-lifestyle.png": { width: 1024, height: 1024 },
 };
 

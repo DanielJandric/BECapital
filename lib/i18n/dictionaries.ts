@@ -134,8 +134,8 @@ const dictionaries: Record<Locale, LocaleDictionary> = {
           "title": "Buy & Hold Stewardship",
           "description": "Our evergreen capital structure supports 12+ year ownership horizons, embedding operational talent, governance, and succession planning to sustain momentum.",
           "image": {
-            "src": "/images/hero-lifestyle.png",
-            "alt": "Executive meeting overlooking Swiss mountains"
+            "src": "/images/buyhold.png",
+            "alt": "Partners reviewing multi-decade strategy in alpine glass boardroom"
           }
         }
       ]
@@ -279,9 +279,9 @@ const dictionaries: Record<Locale, LocaleDictionary> = {
           "title": "Patrimoine long terme",
           "description": "Notre capital evergreen autorise un horizon de détention supérieur à 12 ans, intégrant talents opérationnels, gouvernance et succession afin de pérenniser la performance.",
           "image": {
-            "src": "/images/hero-lifestyle.png",
-            "alt": "Réunion de dirigeants avec panorama alpin"
-          }
+            "src": "/images/buyhold.png",
+            "alt": "Dirigeants observant une strat\u00e9gie pluri-d\u00e9cennale dans une salle vitr\u00e9e alpine"
+                    }
         }
       ]
     },
@@ -424,9 +424,9 @@ const dictionaries: Record<Locale, LocaleDictionary> = {
           "title": "Langfristige Eigentümerschaft",
           "description": "Unsere Evergreen-Struktur ermöglicht Haltefristen von über 12 Jahren. Operative Talente, Governance und Nachfolgeplanung sichern nachhaltige Performance.",
           "image": {
-            "src": "/images/hero-lifestyle.png",
-            "alt": "Führungsrunde mit Blick auf die Alpen"
-          }
+            "src": "/images/buyhold.png",
+            "alt": "F\u00fchrungsteam bespricht mehrdekadige Strategie im verglasten Alpen-Boardroom"
+                    }
         }
       ]
     },
